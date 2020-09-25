@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image,ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 export default function Forecast(props) {
     return (
@@ -8,12 +8,12 @@ export default function Forecast(props) {
             <Text style={styles.big}>{props.main}</Text>
             <Text style={styles.medium}>{props.description}</Text>
             <View style={{ marginTop: 20 }}>
+                <Image source={require('./cloudy.png')}>
+                </Image>
                 <Text>
-                    <Image source={require('./cloudy.png')}style={styles.backdrop}>
-                    </Image>
                     <Text style={styles.big}>{props.temp}  </Text>
                     <Text style={styles.medium}>°C</Text>
-
+                   
                 </Text>
             </View>
         </View>

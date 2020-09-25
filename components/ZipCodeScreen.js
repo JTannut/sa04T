@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, FlatList, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableHighlight,ImageBackground, StyleSheet } from 'react-native';
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
     { place: 'Trang', code: '92000' },
@@ -14,9 +14,9 @@ const availableZipItems = [
 
 const ZipItem = ({ place, code, navigation }) => (
     <TouchableHighlight onPress={() => navigation.navigate('Weather', { zipCode: code })}>
-    <View style={styles.textmain} >
-        <Text>{place}</Text>
-        <Text>{code}</Text>
+    <View>
+        <Text style={styles.textmain} >{place}</Text>
+        <Text style={styles.textcode} >{code}</Text>
     </View>
 </TouchableHighlight>
 
@@ -28,18 +28,31 @@ export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
         <View>
+            <ImageBackground source={require('./bghome.jpg')} style={styles.backdrop}>
             <FlatList
                 data={availableZipItems}
                 keyExtractor={_keyExtractor}
                 renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
             />
             <StatusBar style="auto" />
+            </ImageBackground>
         </View>
     );
 }
 const styles = StyleSheet.create({
     textmain: {
-        borderColor: 'black',
-        fontSize: 100,
+        color: 'white',
+        fontSize: 60,
+    },
+    textcode: {
+        color: 'white',
+        fontSize: 20,
+        
+    },
+    backdrop: {
+        alignItems: 'center',
+
+        width: '100%',
+        height: '100%'
     },
 });
