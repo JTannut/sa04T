@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     cover: {
-        backgroundColor: 'black',
+        backgroundColor: 'steelblue',
         width: '100%',
         height: 250,
-        opacity: 0.4,
+        opacity: 0.9,
         alignItems: 'center',
     },
     medium: {

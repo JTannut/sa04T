@@ -2,6 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Weather from './components/Weather';
+import WeatherScreen from './components/WeatherScreen';
+import ZipCodeScreen from './components/ZipCodeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function App() {
 
@@ -9,17 +15,20 @@ export default function App() {
     console.log('DO');
   }
   return (
-    <View style={styles.container}>
-      <Text onPress={doIt}> 6135512016 </Text>
-      <StatusBar style="auto" />
-      <Weather zipCode='83120'/>
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={ZipCodeScreen} />
+      <Stack.Screen name="Weather" component={WeatherScreen} />
+    </Stack.Navigator> 
+  </NavigationContainer>       
+
+      
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     borderColor: 'gray',
     borderWidth: 0,
     backgroundColor: '#fff',
