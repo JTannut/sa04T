@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet,Alert,Button } from 'react-native';
 
 export default function Forecast(props) {
     return (
@@ -15,6 +15,7 @@ export default function Forecast(props) {
                     <Text style={styles.medium}>°C</Text>
                    
                 </Text>
+
             </View>
         </View>
     );
